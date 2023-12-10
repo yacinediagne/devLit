@@ -41,8 +41,8 @@ CREATE TABLE IF NOT EXISTS posts
 CREATE TABLE IF NOT EXISTS messages
 (
     id         INT AUTO_INCREMENT PRIMARY KEY,
-    created_at VARCHAR(6)  not null,
-    message    VARCHAR(500),a 
+    created_at VARCHAR(20)  not null,
+    message    VARCHAR(500),
     post_id    bigint    not   null,
     FOREIGN KEY (post_id) REFERENCES posts (id),
     FOREIGN KEY (author_id) REFERENCES users (id)
