@@ -16,7 +16,7 @@ public class Users {
     private boolean isAdmin;
 
     @Column(name = "created_at")
-    private String created_at;
+    private String createdAt;
 
     @Column
     private String email;
@@ -26,5 +26,10 @@ public class Users {
 
     @Column(name = "last_name")
     private String lastName;
+
+    private String password;
+
+    @Column(name = "updated_at")
+    private String updatedAt;
 
 }

@@ -13,7 +13,7 @@ public class Subscriptions {
 
     @OneToMany
     @JoinColumn(name = "id")
-    private Subjects subjects;
+    private Subjects subject;
 
     @OneToMany
     @JoinColumn(name = "id")
