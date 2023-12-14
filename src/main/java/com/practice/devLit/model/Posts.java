@@ -1,5 +1,8 @@
 package com.practice.devLit.model;
 
+import jakarta.persistence.*;
+import lombok.Data;
+
 @Data
 @Entity
 @Table(name = "posts")
@@ -18,11 +21,11 @@ public class Posts {
     @Column(name = "updated_at")
     private String updatedAt;
 
-    @ManytoOne
+    @ManyToOne
     @JoinColumn(name = "author_id")
     private Users user;
 
-    @OnetoOne
+    @OneToOne
     @JoinColumn(name = "subject_id")
     private Subjects subject;
 
