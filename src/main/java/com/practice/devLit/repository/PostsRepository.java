@@ -1,7 +1,5 @@
 package com.practice.devLit.repository;
 
-import javax.security.auth.Subject;
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import com.practice.devLit.model.Posts;

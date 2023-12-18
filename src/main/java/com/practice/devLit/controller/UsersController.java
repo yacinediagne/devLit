@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.practice.devLit.model.Users;
@@ -15,7 +16,7 @@ public class UsersController {
     private UsersRepository usersRepository;
 
     @GetMapping(value = "/users/{id}")
-    public Optional<Users> getUser(Long id) {
+    public Optional<Users> getUser(@PathVariable Long id) {
         return usersRepository.findById(id);
     }
 
