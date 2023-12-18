@@ -27,7 +27,7 @@ public class UsersControllerTestI {
     }
 
     private long id = 1;
-
+@ba.mendelba@gmail.com can you help here ? My test failed but i really don't why 
     @Test
     public void getUserTest() throws Exception {
         mockMvc.perform(get("/users/{id}", id))
