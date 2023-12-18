@@ -32,7 +32,7 @@ public class UsersControllerTestI {
     public void getUserTest() throws Exception {
         mockMvc.perform(get("/users/{id}", id))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.email", is("yacinediagne3110@gmail.com")));
+                .andExpect(jsonPath("$.email", is("admindatabase@example.com")));
 
     }
 }
