@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.practice.devLit.model.Users;
 
 @Repository
-public interface UsersRepository extends CrudRepository<Users, Integer> {
+public interface UsersRepository extends CrudRepository<Users, Long> {
 
 }

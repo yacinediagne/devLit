@@ -10,7 +10,7 @@ public class Messages {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column
     private String created_at;
@@ -19,10 +19,10 @@ public class Messages {
     private String message;
 
     @Column(name = "post_id")
-    @JoinColumn(name = "posts", referencedColumnName = "id")
+    @JoinColumn(name = "posts", referencedColumnName = "id", nullable = false)
     private int postId;
 
     @Column(name = "author_id")
-    @JoinColumn(name = "users", referencedColumnName = "id")
+    @JoinColumn(name = "users", referencedColumnName = "id", nullable = false)
     private int authorId;
 }

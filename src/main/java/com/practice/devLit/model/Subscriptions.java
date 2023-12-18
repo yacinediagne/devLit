@@ -9,14 +9,16 @@ import lombok.Data;
 public class Subscriptions {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
-    @OneToMany
-    @JoinColumn(name = "id")
+    @ManyToOne
+    @MapsId("id")
+    @JoinColumn(name = "subject_id", nullable = false)
     private Subjects subject;
 
-    @OneToMany
-    @JoinColumn(name = "id")
+    @ManyToOne
+    @MapsId("id")
+    @JoinColumn(name = "id", nullable = false)
     private Users user;
 
 }

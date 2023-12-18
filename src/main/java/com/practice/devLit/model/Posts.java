@@ -9,7 +9,7 @@ import lombok.Data;
 public class Posts {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column(name = "created_at")
     private String createdAt;
@@ -22,11 +22,11 @@ public class Posts {
     private String updatedAt;
 
     @ManyToOne
-    @JoinColumn(name = "author_id")
-    private Users user;
+    @JoinColumn(name = "author_id", nullable = false)
+    private Users author;
 
     @OneToOne
-    @JoinColumn(name = "subject_id")
+    @JoinColumn(name = "subject_id", nullable = false)
     private Subjects subject;
 
 }

@@ -10,7 +10,7 @@ public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "admin")
     private boolean isAdmin;
