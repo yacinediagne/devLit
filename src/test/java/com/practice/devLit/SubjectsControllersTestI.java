@@ -22,16 +22,28 @@ public class SubjectsControllersTestI {
     private MockMvc mockMvc;
 
     Subjects subject;
-
+    int id;
     @BeforeEach
     public void variableTest(){
         subject = new Subjects();
+        id=1;
     }
     @Test
     public void getSubjectsTest() throws Exception {
 
         mockMvc.perform(get("/subjects"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.[0].id", is(1)));
+                .andExpect(jsonPath("$.[0].subject_id", is(1)));
     }
+
+    @Test
+    public void getSubjectTest() throws Exception{
+
+        mockMvc.perform(get("/subject/{id}", id))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.title", is("Science")));
+    }
+
+
+
 }
