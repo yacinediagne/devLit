@@ -6,10 +6,13 @@ import com.practice.devLit.model.Posts;
 import com.practice.devLit.model.Subjects;
 import com.practice.devLit.model.Users;
 
+import java.util.Set;
+
 @Repository
 public interface PostsRepository extends CrudRepository<Posts, Long> {
     Iterable<Posts> findByAuthor(Users author);
 
-    Iterable<Posts> findBySubject(Subjects subject);
+    Iterable<Posts> findBySubjectInOrderByCreatedAtAsc(Set<Subjects> subjects);
+
 
 }

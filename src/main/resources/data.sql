@@ -1,11 +1,11 @@
 CREATE TABLE IF NOT EXISTS users(
     id INT AUTO_INCREMENT PRIMARY KEY,
     admin bit not null,
-    created_at VARCHAR(50),
+    created_at Date,
     email      VARCHAR(50) UNIQUE NOT NULL,
     first_name VARCHAR(20)  not null,
     password   VARCHAR(120),
-    updated_at VARCHAR(6)
+    updated_at Date
 );
 
 CREATE TABLE IF NOT EXISTS subjects
@@ -27,11 +27,11 @@ CREATE TABLE IF NOT EXISTS subscriptions
 
 CREATE TABLE IF NOT EXISTS posts
 (
-    id          INT AUTO_INCREMENT PRIMARY KEY,
-    created_at  VARCHAR(6),
+    id        INT AUTO_INCREMENT PRIMARY KEY,
+    created_at  Date,
     description VARCHAR(5000),
     title       VARCHAR(200) ,
-    updated_at  VARCHAR(6),
+    updated_at  Date(6),
     author_id   bigint not null,
     subject_id  bigint not null,
     FOREIGN KEY (author_id) REFERENCES users (id),
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS posts
 CREATE TABLE IF NOT EXISTS messages
 (
     id         INT AUTO_INCREMENT PRIMARY KEY,
-    created_at VARCHAR(20)  not null,
+    created_at Date(20)  not null,
     message    VARCHAR(500),
     post_id    bigint    not   null,
     FOREIGN KEY (post_id) REFERENCES posts (id),
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS messages
 );
 
 INSERT INTO users (admin, created_at, email, first_name, password, updated_at)
-VALUES (1, '2023-01-01', 'admin@example.com', 'Admin', 'hashed_password', '2023-01-02'),
+VALUES (1, '2023-01-01', '@example.com', 'Admin', 'hashed_password', '2023-01-02'),
        (0, '2023-01-03', 'user1@example.com', 'User1', 'hashed_password_1', '2023-01-04'),
        (0, '2023-01-05', 'user2@example.com', 'User2', 'hashed_password_2', '2023-01-06');
 

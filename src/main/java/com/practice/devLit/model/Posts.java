@@ -3,6 +3,9 @@ package com.practice.devLit.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Date;
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "posts")
@@ -12,7 +15,7 @@ public class Posts {
     private long id;
 
     @Column(name = "created_at")
-    private String createdAt;
+    private Date createdAt;
 
     private String description;
 
@@ -29,4 +32,7 @@ public class Posts {
     @JoinColumn(name = "subject_id", nullable = false)
     private Subjects subject;
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name= "post_id")
+    List <Messages> listMessages ;
 }

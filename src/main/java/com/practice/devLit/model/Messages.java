@@ -18,11 +18,11 @@ public class Messages {
     @Column
     private String message;
 
-    @Column(name = "post_id")
-    @JoinColumn(name = "posts", referencedColumnName = "id", nullable = false)
-    private int postId;
+    @ManyToOne(fetch= FetchType.LAZY)
+    @JoinColumn(name = "post_id", referencedColumnName = "id", nullable = false)
+    private Posts post;
 
-    @Column(name = "author_id")
-    @JoinColumn(name = "users", referencedColumnName = "id", nullable = false)
-    private int authorId;
+    @ManyToOne(fetch= FetchType.LAZY)
+    @JoinColumn(name = "author_id", referencedColumnName = "id", nullable = false)
+    private Users user ;
 }

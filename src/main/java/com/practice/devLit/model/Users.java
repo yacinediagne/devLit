@@ -1,9 +1,12 @@
 package com.practice.devLit.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Data
+@AllArgsConstructor
 @Entity
 @Table(name = "users")
 public class Users {
@@ -32,4 +35,7 @@ public class Users {
     @Column(name = "updated_at")
     private String updatedAt;
 
+    public Users() {
+
+    }
 }

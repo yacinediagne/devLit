@@ -5,6 +5,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.practice.devLit.model.Subjects;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -19,6 +21,12 @@ public class SubjectsControllersTestI {
     @Autowired
     private MockMvc mockMvc;
 
+    Subjects subject;
+
+    @BeforeEach
+    public void variableTest(){
+        subject = new Subjects();
+    }
     @Test
     public void getSubjectsTest() throws Exception {
 

@@ -11,14 +11,12 @@ public class Subscriptions {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
-    @MapsId("id")
-    @JoinColumn(name = "subject_id", nullable = false)
-    private Subjects subject;
 
-    @ManyToOne
-    @MapsId("id")
-    @JoinColumn(name = "id", nullable = false)
-    private Users user;
+    @Column(name="subject_id")
+    private long subject;
+
+
+    @Column(name="user_id")
+    private long  user;
 
 }
