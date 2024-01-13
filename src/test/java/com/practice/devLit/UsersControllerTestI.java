@@ -9,6 +9,10 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.http.MediaType;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -31,7 +35,9 @@ public class UsersControllerTestI {
     @BeforeEach
     public void start() {
         System.out.println("Starting Tests");
-        user= new Users((long)1, false,"16-12-2023", "adja@example.com", "adja" ,  "sy", "passer", "16-12-2023");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu/MM/dd");
+        LocalDate localDate = LocalDate.now();
+        user= new Users( (long)7,false,localDate, "adja@example.com", "adja" ,  "sy", "passer", localDate);
         //Users user= new Users((long)1, false,"16-12-2023", "fatoumata@example.com", "fatoumata" ,  "deme", "passer", "16-12-2023");
         //"This is my favorite topic", "Why Kubernetes", "16-12-2023", "Yacine", "Devops" );
         id = 1;

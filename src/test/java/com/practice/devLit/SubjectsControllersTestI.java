@@ -44,6 +44,4 @@ public class SubjectsControllersTestI {
                 .andExpect(jsonPath("$.title", is("Science")));
     }
 
-
-
 }

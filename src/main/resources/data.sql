@@ -47,11 +47,10 @@ CREATE TABLE IF NOT EXISTS messages
     FOREIGN KEY (post_id) REFERENCES posts (id),
     FOREIGN KEY (author_id) REFERENCES users (id)
 );
-
 INSERT INTO users (admin, created_at, email, first_name, password, updated_at)
-VALUES (1, '2023-01-01', '@example.com', 'Admin', 'hashed_password', '2023-01-02'),
-       (0, '2023-01-03', 'user1@example.com', 'User1', 'hashed_password_1', '2023-01-04'),
-       (0, '2023-01-05', 'user2@example.com', 'User2', 'hashed_password_2', '2023-01-06');
+VALUES (1, '2023-01-01', 'arame@example.com', 'Arame', 'passer', '2023-01-02'),
+       (0, '2023-01-03', 'yacine@example.com', 'Yacine', 'passer', '2023-01-04'),
+       (0, '2023-01-05', 'amy@example.com', 'Amy', 'passer', '2023-01-06');
 
 INSERT INTO subjects (description, title)
 VALUES ('Science-related discussions', 'Science'),
