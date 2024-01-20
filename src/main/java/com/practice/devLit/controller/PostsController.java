@@ -9,14 +9,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class PostsController {
 
     @Autowired
     private PostsRepository postsRepository;
-    @GetMapping("/posts/{author}")
-    public Iterable<Posts>  getPostsByAuthor(@PathVariable Users author)  {
-        return postsRepository.findByAuthor(author);
+    @GetMapping("/posts/{authorId}")
+    public List<Posts> getPostsByAuthor(@PathVariable("authorId") String authorId)  {
+        return postsRepository.findByAuthorId(Long.parseLong(authorId));
     }
 
     @PostMapping("/save-posts")

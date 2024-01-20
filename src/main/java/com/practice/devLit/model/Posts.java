@@ -43,6 +43,14 @@ public class Posts {
     @JoinColumn(name= "post_id")
     List <Messages> listMessages ;
 
+    public Posts(LocalDate createdAt, String description, String title, LocalDate updatedAt, Users author, Subjects subject) {
+        this.createdAt = createdAt;
+        this.description = description;
+        this.title = title;
+        this.updatedAt = updatedAt;
+        this.author = author;
+        this.subject = subject;
+    }
     public Posts(LocalDate createdAt, String description, String title, LocalDate updatedAt, Users author, Subjects subject, List<Messages> listMessages) {
         this.createdAt = createdAt;
         this.description = description;
@@ -50,6 +58,6 @@ public class Posts {
         this.updatedAt = updatedAt;
         this.author = author;
         this.subject = subject;
-        this.listMessages = new ArrayList<>();
+        this.listMessages = listMessages;
     }
 }

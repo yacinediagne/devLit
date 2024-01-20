@@ -4,15 +4,15 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import com.practice.devLit.model.Posts;
 import com.practice.devLit.model.Subjects;
-import com.practice.devLit.model.Users;
 
+import java.util.List;
 import java.util.Set;
 
 @Repository
 public interface PostsRepository extends CrudRepository<Posts, Long> {
-    Iterable<Posts> findByAuthor(Users author);
+    List<Posts> findByAuthorId(long authorId);
 
-    Iterable<Posts> findBySubjectInOrderByCreatedAtAsc(Set<Subjects> subjects);
+    List<Posts> findBySubjectInOrderByCreatedAtAsc(Set<Subjects> subjects);
 
 
 }

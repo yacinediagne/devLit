@@ -1,6 +1,7 @@
 package com.practice.devLit.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -8,8 +9,8 @@ import lombok.RequiredArgsConstructor;
 @Data
 @Entity
 @Table(name = "subjects")
-//@NoArgsConstructor
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class Subjects {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
