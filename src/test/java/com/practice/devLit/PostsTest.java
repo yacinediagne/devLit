@@ -1,10 +1,13 @@
 package com.practice.devLit;
 
+import com.practice.devLit.controller.SubjectsController;
 import com.practice.devLit.model.Posts;
 import com.practice.devLit.model.Subjects;
 import com.practice.devLit.model.Users;
 import com.practice.devLit.repository.PostsRepository;
+import com.practice.devLit.repository.SubjectsRepository;
 import com.practice.devLit.repository.UsersRepository;
+import com.practice.devLit.service.UsersService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureJsonTesters
 @SpringBootTest
 @AutoConfigureMockMvc
-public class PostsTestI {
+public class PostsTest {
 
     @Autowired
     MockMvc mockMvc;
@@ -39,24 +42,33 @@ public class PostsTestI {
     private static UsersRepository usersRepository;
 
     public Posts post ;
-    public Users author;
+    public Users author1;
     public Subjects subject;
 
     @Autowired
     private JacksonTester<Posts> postsJacksonTester;
+    @Autowired
+    private UsersService usersService;
+
+    @Autowired
+    private SubjectsController subjectsController;
+
 
     @BeforeEach
-    public void initiateVariable(){
-
-        Long id = 1L;
-        author= new Users( 1L,false,LocalDate.now(), "adja@example.com", "adja" ,  "sy", "passer", LocalDate.now());
-        subject= new Subjects(1, "adja@example.com", "adja");
-
+    public void start(){
+        System.out.println("We are in the starting section of the test");
+        Long id = 5L;
+        author1= new Users( false,LocalDate.now(), "yacine@example.com", "yacine" ,  "diagne", "passer", LocalDate.now());
+        usersService.saveUserByCapitalize(author1);
+        System.out.println(author1);
+        subject= new Subjects("Linux commande line guide", "Know your Linux CL");
+        subjectsController.saveSubject(subject);
         post = new Posts(LocalDate.now(),
                 "This is a tutorial",
-                "Deploying on Kubernetes ", LocalDate.now(),
-                author, subject);
+                "Deploying on Kubernetes ",LocalDate.now(), author1, subject);
+        System.out.println(post);
     }
+    //@MENDEL-BA le test savePostsTest ne marche toujours pas j'ai une erreur 500 cette fois
 
     @Test
     //@WithMockUser("user@yopmail.com") // à Mettre si on a la securite dans notre appli avec un user qui existe

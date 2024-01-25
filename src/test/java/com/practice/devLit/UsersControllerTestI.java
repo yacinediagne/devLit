@@ -81,7 +81,7 @@ public class UsersControllerTestI {
 
     @Test
     public void deleteUserTest() throws Exception {
-        mockMvc.perform(delete("/delete-user/{id}", id).contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(delete("/delete-user/2").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 

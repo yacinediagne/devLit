@@ -28,4 +28,5 @@ public class Subjects {
     @Column
     private String title;
 
+
 }

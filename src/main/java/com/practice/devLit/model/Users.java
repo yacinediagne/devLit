@@ -28,6 +28,7 @@ public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private Long id;
 
     @Column(name = "admin")
@@ -50,6 +51,13 @@ public class Users {
     @Column(name = "updated_at")
     private LocalDate updatedAt;
 
-
-
+    public Users(boolean isAdmin, LocalDate createdAt, String email, String firstName, String lastName, String password, LocalDate updatedAt) {
+        this.isAdmin = isAdmin;
+        this.createdAt = createdAt;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.updatedAt = updatedAt;
+    }
 }
